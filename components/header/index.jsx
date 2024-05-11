@@ -35,15 +35,15 @@ function Header(){
     return(
         <View style={styles.header}>
 
-            <View>
+            <View style={styles.containerTitle}>
                 <Text style={styles.title}>TIPS CALCULATOR</Text>
             </View>
 
-            <View>
-            <Animated.Image
-                    style={[styles.imgCalculator, { transform: [{ rotate: spin }] }]}
-                    source={calculadoraImg}
-            />
+            <View style={styles.containerImg}>
+                <Animated.Image
+                        style={[styles.imgCalculator, { transform: [{ rotate: spin }] }]}
+                        source={calculadoraImg}
+                />
             </View>
 
         </View>
@@ -58,10 +58,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: Constants.statusBarHeight
     },
+    containerTitle: {
+        width: 250,
+    },
     title: {
         fontFamily: 'BungeeShade_400Regular',
         margin: 0,
-        fontSize:40
+        fontSize:30,
+        textAlign: 'center'
+    },
+    containerImg: {
+        width: 'maxContent',
     },
     imgCalculator: {
         height: 80,
