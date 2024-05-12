@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
+import {  useFonts, Amaranth_400Regular, Amaranth_700Bold } from '@expo-google-fonts/amaranth';
 
 function Calculator(){
 
     const[value, setValue] = useState("");
     const[percentage, setPercentage] = useState("");
     const[total, setTotal] = useState(0);
+
+    let[fontsLoaded] = useFonts({
+        Amaranth_400Regular,
+        Amaranth_700Bold
+    });
 
     const handleValue = (text) => {
         setValue(text);
@@ -51,7 +57,7 @@ function Calculator(){
             </View>
 
             <View>
-                <Text>Total with tip percentage</Text>
+                <Text style={styles.calculatorBx1_title}>Total with tip percentage</Text>
                 <Text style={styles.total}>${total.toFixed(2)}</Text>
             </View>
 
@@ -71,22 +77,29 @@ const styles = StyleSheet.create({
         paddingTop: 43,
         paddingBottom: 43,
         borderRadius: 12,
+        width: 300
     },
     calculatorBx1: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: 180
+        width: 200,
+        gap: 10
     },
     calculatorBx1_title:{
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Amaranth_400Regular',
+        fontSize: 19
     },
     input:{
         borderWidth: 1,
         borderColor: 'black',
         width: 150,
+        textAlign: 'center'
     },
     total:{
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Amaranth_700Bold',
+        fontSize: 30
     }
 })
 
